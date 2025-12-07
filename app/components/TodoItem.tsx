@@ -35,6 +35,10 @@ export function TodoItem({ todo }: TodoItemProps) {
           type="text"
           value={editText}
           onChange={(e) => setEditText(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") handleSave();
+            if (e.key === "Escape") handleCancel();
+          }}
           className="flex-1 px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-black"
           autoFocus
         />
