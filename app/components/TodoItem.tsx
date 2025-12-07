@@ -78,6 +78,7 @@ export function TodoItem({ todo }: TodoItemProps) {
       <button
         onClick={() => setIsEditing(true)}
         className="px-3 py-1 text-sm border border-border rounded hover:bg-black hover:text-white transition-colors"
+        aria-label={`Edit todo: ${todo.text}`}
       >
         Edit
       </button>
