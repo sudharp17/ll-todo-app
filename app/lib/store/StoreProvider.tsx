@@ -2,7 +2,7 @@
 
 import { type ReactNode, createContext, useRef, useContext, useState } from "react";
 import { useStore } from "zustand";
-import { createTodoStore, type TodoStoreType } from "./todoStore";
+import { createTodoStore, type TodoStoreType, type TodoStore } from "./todoStore";
 
 export const TodoStoreContext = createContext<TodoStoreType | null>(null);
 
@@ -20,7 +20,7 @@ export function TodoStoreProvider({ children }: TodoStoreProviderProps) {
   );
 }
 
-export function useTodoStore<T>(selector: (store: ReturnType<typeof createTodoStore>["getState"]) => T): T {
+export function useTodoStore<T>(selector: (store: TodoStore) => T): T {
   const todoStoreContext = useContext(TodoStoreContext);
 
   if (!todoStoreContext) {

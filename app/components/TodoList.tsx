@@ -2,6 +2,7 @@
 
 import { useTodoStore } from "@/app/lib/store/StoreProvider";
 import { TodoItem } from "./TodoItem";
+import type { Todo } from "@/app/lib/types/todo";
 
 export function TodoList() {
   const todos = useTodoStore((state) => state.todos);
@@ -16,7 +17,7 @@ export function TodoList() {
 
   return (
     <ul className="border border-border rounded overflow-hidden">
-      {todos.map((todo) => (
+      {todos.map((todo: Todo) => (
         <TodoItem key={todo.id} todo={todo} />
       ))}
     </ul>
